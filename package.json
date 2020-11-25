@@ -53,5 +53,8 @@
   },
   "eslintIgnore": [
     "dist/"
+  ],
+  "browserslist": [
+    "since 2017-06"
   ]
 }
