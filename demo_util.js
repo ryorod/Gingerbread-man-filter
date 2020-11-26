@@ -80,7 +80,7 @@ export function drawPoint(ctx, y, x, r, color) {
 
 //口の描画
 export function drawCurve(ctx, y1, y2, x1, x2, r, color) {
-  let radian = Math.atan2(y2 - y1, x2 - x1);
+  let radian = Math.atan2(y2 - y1, Math.abs(x2 - x1));
   ctx.strokeStyle = color;
   ctx.lineWidth = 5;
   ctx.beginPath();
