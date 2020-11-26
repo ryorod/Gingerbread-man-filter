@@ -635,6 +635,8 @@ function segmentBodyInRealTime() {
         state.changingQuantBytes) {
       console.log('load model...');
       loadBodyPix();
+      const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+      await sleep(2000);
       state.changingArchitecture = false;
       state.changingMultiplier = false;
       state.changingStride = false;
