@@ -233,6 +233,12 @@ function setupGui(cameras) {
 
         await loadVideo(cameraLabel);
 
+        if (getFacingMode(cameraLabel) == 'environment') {
+          guiState.flipHorizontal = false;
+        }else{
+          guiState.flipHorizontal = true;
+        }
+
         state.changingCamera = false;
       });
 
