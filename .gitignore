@@ -12,6 +12,7 @@ clone/
 **/*/.yalc
 
 .rpt2_cache/
+.cache/
 
 *.pyc
 

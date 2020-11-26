@@ -517,6 +517,14 @@ function setupFPS() {
   }
 }
 
+function canvasDownload() {
+  let canvas = document.getElementById("output");
+  let a = document.createElement("a");
+  a.href = canvas.toDataURL();
+  a.download = "gingerbread-man.png";
+  a.click();
+}
+
 async function estimateSegmentation() {
   let multiPersonSegmentation = null;
   switch (guiState.algorithm) {
@@ -716,6 +724,10 @@ export async function bindPage() {
   await loadBodyPix();
   document.getElementById('loading').style.display = 'none';
   document.getElementById('main').style.display = 'inline-block';
+
+  document.getElementById("download").onclick = (e) => {
+    canvasDownload();
+  }
 
   await loadVideo(guiState.camera);
 
