@@ -213,6 +213,12 @@ export function drawRibbon(keypoints, ctx, scale = 1) {
   }
 }
 
+export function drawFace(keypoints, ctx, scale = 1) {
+  drawEyes(keypoints, ctx, scale);
+  drawMouth(keypoints, ctx, scale);
+  drawRibbon(keypoints, ctx, scale);
+}
+
 /**
  * Draw the bounding box of a pose. For example, for a whole person standing
  * in an image, the bounding box will begin at the nose and extend to one of

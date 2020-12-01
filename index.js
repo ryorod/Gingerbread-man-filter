@@ -19,7 +19,7 @@ import dat from 'dat.gui';
 import Stats from 'stats.js';
 
 //import {drawEyes, drawKeypoints, drawMouth, drawRibbon, drawSkeleton, toggleLoadingUI, TRY_RESNET_BUTTON_NAME, TRY_RESNET_BUTTON_TEXT, updateTryResNetButtonDatGuiCss} from './demo_util';
-import {drawEyes, drawMouth, drawRibbon, toggleLoadingUI} from './demo_util';
+import {drawFace, toggleLoadingUI} from './demo_util';
 //import * as partColorScales from './part_color_scales';
 
 
@@ -595,9 +595,7 @@ function drawPoses(personOrPersonPartSegmentation, flipHorizontally, ctx) {
       }
       //drawKeypoints(pose.keypoints, 0.1, ctx);
       //drawSkeleton(pose.keypoints, 0.1, ctx);
-      drawEyes(pose.keypoints, ctx);
-      drawMouth(pose.keypoints, ctx);
-      drawRibbon(pose.keypoints, ctx);
+      drawFace(pose.keypoints, ctx);
     });
   } else {
     personOrPersonPartSegmentation.allPoses.forEach(pose => {
@@ -607,9 +605,7 @@ function drawPoses(personOrPersonPartSegmentation, flipHorizontally, ctx) {
       }
       //drawKeypoints(pose.keypoints, 0.1, ctx);
       //drawSkeleton(pose.keypoints, 0.1, ctx);
-      drawEyes(pose.keypoints, ctx);
-      drawMouth(pose.keypoints, ctx);
-      drawRibbon(pose.keypoints, ctx);
+      drawFace(pose.keypoints, ctx);
     })
   }
 }
