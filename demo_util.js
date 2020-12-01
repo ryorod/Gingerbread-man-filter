@@ -171,8 +171,10 @@ export function drawEyes(keypoints, ctx, scale = 1) {
   var {y, x} = eyepoint2.position;
   const y2 = y;
   const x2 = x;
-  drawPoint(ctx, y1 * scale, x1 * scale, Math.abs(x2 - x1) / 8, 'white');
-  drawPoint(ctx, y2 * scale, x2 * scale, Math.abs(x2 - x1) / 8, 'white');
+  if((x2-x1)>0){
+    drawPoint(ctx, y1 * scale, x1 * scale, Math.abs(x2 - x1) / 8, 'white');
+    drawPoint(ctx, y2 * scale, x2 * scale, Math.abs(x2 - x1) / 8, 'white');
+  }
 }
 
 //口を描画する
@@ -186,7 +188,9 @@ export function drawMouth(keypoints, ctx, scale = 1) {
   var {y, x} = eyepoint2.position;
   const y2 = y;
   const x2 = x;
-  drawCurve(ctx, y1 * scale, y2 * scale, x1 * scale, x2 * scale, Math.abs(x2 - x1), 'white');
+  if((x2-x1)>0){
+    drawCurve(ctx, y1 * scale, y2 * scale, x1 * scale, x2 * scale, Math.abs(x2 - x1), 'white');
+  }
 }
 
 //リボンを描画する
@@ -202,9 +206,11 @@ export function drawRibbon(keypoints, ctx, scale = 1) {
   const x2 = x;
   const r = Math.abs(x2 - x1);
   
-  drawPoint(ctx, (((y1 + y2) / 2) + r * 2) * scale, ((x1 + x2) / 2) * scale, Math.abs(x2 - x1) / 4, 'red');
-  drawRightPartOfRibbon(ctx, y1 * scale, y2 * scale, x1 * scale, x2 * scale, Math.abs(x2 - x1) * scale, (((y1 + y2) / 2) + r * 2) * scale, 'red');
-  drawLeftPartOfRibbon(ctx, y1 * scale, y2 * scale, x1 * scale, x2 * scale, Math.abs(x2 - x1) * scale, (((y1 + y2) / 2) + r * 2) * scale, 'red');
+  if((x2-x1)>0){
+    drawPoint(ctx, (((y1 + y2) / 2) + r * 2) * scale, ((x1 + x2) / 2) * scale, Math.abs(x2 - x1) / 4, 'red');
+    drawRightPartOfRibbon(ctx, y1 * scale, y2 * scale, x1 * scale, x2 * scale, Math.abs(x2 - x1) * scale, (((y1 + y2) / 2) + r * 2) * scale, 'red');
+    drawLeftPartOfRibbon(ctx, y1 * scale, y2 * scale, x1 * scale, x2 * scale, Math.abs(x2 - x1) * scale, (((y1 + y2) / 2) + r * 2) * scale, 'red');
+  }
 }
 
 /**
