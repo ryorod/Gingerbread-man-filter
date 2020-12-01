@@ -742,11 +742,9 @@ export async function bindPage() {
   
   let cameras = await getVideoInputs();
   
-
   setupFPS();
   setupGui(cameras);
 
-  document.getElementById('loading').style.display = 'none';
   document.getElementById('main').style.display = 'inline-block';
 
   const dl = document.getElementById('download');
@@ -754,6 +752,8 @@ export async function bindPage() {
   dl.onclick = (e) => {
     canvasDownload();
   }
+  
+  document.getElementById('loading').style.display = 'none';
 
   segmentBodyInRealTime();
 }
