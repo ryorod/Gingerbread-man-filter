@@ -592,20 +592,31 @@ function drawPoses(personOrPersonPartSegmentation, flipHorizontally, ctx) {
       let pose = personSegmentation.pose;
       if (flipHorizontally) {
         pose = bodyPix.flipPoseHorizontal(pose, personSegmentation.width);
-      }
+        const eyepoint1 = pose.keypoints[1];
+        const eyepoint2 = pose.keypoints[2];
+        drawFace(eyepoint1, eyepoint2, ctx);
+      }else{
       //drawKeypoints(pose.keypoints, 0.1, ctx);
       //drawSkeleton(pose.keypoints, 0.1, ctx);
-      drawFace(pose.keypoints, ctx);
+      const eyepoint1 = pose.keypoints[1];
+      const eyepoint2 = pose.keypoints[2];
+      drawFace(eyepoint2, eyepoint1, ctx);
+      }
     });
   } else {
     personOrPersonPartSegmentation.allPoses.forEach(pose => {
       if (flipHorizontally) {
         pose = bodyPix.flipPoseHorizontal(
             pose, personOrPersonPartSegmentation.width);
+        const eyepoint1 = pose.keypoints[1];
+        const eyepoint2 = pose.keypoints[2];
+        drawFace(eyepoint1, eyepoint2, ctx);
       }
       //drawKeypoints(pose.keypoints, 0.1, ctx);
       //drawSkeleton(pose.keypoints, 0.1, ctx);
-      drawFace(pose.keypoints, ctx);
+      const eyepoint1 = pose.keypoints[1];
+      const eyepoint2 = pose.keypoints[2];
+      drawFace(eyepoint2, eyepoint1, ctx);
     })
   }
 }

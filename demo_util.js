@@ -161,9 +161,9 @@ export function drawKeypoints(keypoints, minConfidence, ctx, scale = 1) {
 }
 
 //目を描画する
-export function drawEyes(keypoints, ctx, scale = 1) {
-  const eyepoint1 = keypoints[1];
-  const eyepoint2 = keypoints[2];
+export function drawEyes(eyepoint1, eyepoint2, ctx, scale = 1) {
+  //const eyepoint1 = keypoints[1];
+  //const eyepoint2 = keypoints[2];
   
   var {y, x} = eyepoint1.position;
   const y1 = y;
@@ -178,9 +178,9 @@ export function drawEyes(keypoints, ctx, scale = 1) {
 }
 
 //口を描画する
-export function drawMouth(keypoints, ctx, scale = 1) {
-  const eyepoint1 = keypoints[1];
-  const eyepoint2 = keypoints[2];
+export function drawMouth(eyepoint1, eyepoint2, ctx, scale = 1) {
+  //const eyepoint1 = keypoints[1];
+  //const eyepoint2 = keypoints[2];
   
   var {y, x} = eyepoint1.position;
   const y1 = y;
@@ -194,9 +194,9 @@ export function drawMouth(keypoints, ctx, scale = 1) {
 }
 
 //リボンを描画する
-export function drawRibbon(keypoints, ctx, scale = 1) {
-  const eyepoint1 = keypoints[1];
-  const eyepoint2 = keypoints[2];
+export function drawRibbon(eyepoint1, eyepoint2, ctx, scale = 1) {
+  //const eyepoint1 = keypoints[1];
+  //const eyepoint2 = keypoints[2];
   
   var {y, x} = eyepoint1.position;
   const y1 = y;
@@ -213,10 +213,10 @@ export function drawRibbon(keypoints, ctx, scale = 1) {
   }
 }
 
-export function drawFace(keypoints, ctx, scale = 1) {
-  drawEyes(keypoints, ctx, scale);
-  drawMouth(keypoints, ctx, scale);
-  drawRibbon(keypoints, ctx, scale);
+export function drawFace(eyepoint1, eyepoint2, ctx, scale = 1) {
+  drawEyes(eyepoint1, eyepoint2, ctx, scale);
+  drawMouth(eyepoint1, eyepoint2, ctx, scale);
+  drawRibbon(eyepoint1, eyepoint2, ctx, scale);
 }
 
 /**
