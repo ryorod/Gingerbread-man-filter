@@ -737,19 +737,23 @@ function segmentBodyInRealTime() {
 export async function bindPage() {
   // Load the BodyPix model weights with architecture 0.75
   await loadBodyPix();
-  document.getElementById('loading').style.display = 'none';
-  document.getElementById('main').style.display = 'inline-block';
-
-  document.getElementById("download").onclick = (e) => {
-    canvasDownload();
-  }
-
+  
   await loadVideo(guiState.camera);
-
+  
   let cameras = await getVideoInputs();
+  
 
   setupFPS();
   setupGui(cameras);
+
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('main').style.display = 'inline-block';
+
+  const dl = document.getElementById('download');
+  dl.style.display = 'inline-block';
+  dl.onclick = (e) => {
+    canvasDownload();
+  }
 
   segmentBodyInRealTime();
 }

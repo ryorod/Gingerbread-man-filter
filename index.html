@@ -92,8 +92,13 @@
       }
     }
 
-    .spinner-text {
+    .spinner {
       float: left;
+    }
+
+    #gingerbread {
+      width: 200px;
+      height: auto;
     }
 
     /* mobile */
@@ -123,15 +128,14 @@
   <div id="info" style='display:none'>
   </div>
   <div id="loading" style='display:flex'>
-    <div class="spinner-text">
-      Loading BodyPix model...
+    <div class="spinner">
+      <img src="./img/gingerbread.png" id="gingerbread" alt="gingerbread man">
     </div>
-    <div class="sk-spinner sk-spinner-pulse"></div>
   </div>
   <div id='main' style='display:none'>
-    <video id="video" playsinline style="display: none;"></video>
+    <video id="video" playsinline style="display: none"></video>
     <canvas id="output"></canvas>
-    <img src="img/camera.png" id="download">
+    <img src="./img/camera.png" id="download" alt="camera icon" style="display: none">
   </div>
   <!--
   <ul id="colors" style="display: none"></ul>
