@@ -92,12 +92,47 @@
       }
     }
 
-    .spinner {
+    #loading {
+      position: relative;
+      margin-top: 25px;
+      margin-left: 50px;
+    }
+
+    #spinner {
       float: left;
     }
 
     #gingerbread {
-      width: 200px;
+      width: 150px;
+      height: auto;
+    }
+
+    #loading-and-dots {
+      display: flex;
+      position: absolute;
+      margin-top: 165px;
+      height: auto;
+      align-items: flex-start;
+    }
+
+    #load-text {
+      width: 150px;
+      height: auto;
+    }
+    
+    ul {
+      list-style: none;
+      padding-bottom: 5px;
+      padding-left: 7px;
+    }
+
+    li {
+      display: inline-block;
+      margin-left: 5px;
+    }
+
+    li img {
+      width: 5px;
       height: auto;
     }
 
@@ -128,8 +163,16 @@
   <div id="info" style='display:none'>
   </div>
   <div id="loading" style='display:flex'>
-    <div class="spinner">
+    <div id="spinner">
       <img src="./img/gingerbread.png" id="gingerbread" alt="gingerbread man">
+    </div>
+    <div id="loading-and-dots">
+      <img src="./img/Loading.png" id="load-text" alt="loading text">
+      <ul>
+        <li><img src="./img/small_cookie.png" alt="dots"></li>
+        <li><img src="./img/small_cookie.png" alt="dots"></li>
+        <li><img src="./img/small_cookie.png" alt="dots"></li>
+      </ul>
     </div>
   </div>
   <div id='main' style='display:none'>
