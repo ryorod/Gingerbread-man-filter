@@ -752,10 +752,10 @@ export async function bindPage() {
   dl.onclick = (e) => {
     canvasDownload();
   }
-  
-  document.getElementById('loading').style.display = 'none';
 
   segmentBodyInRealTime();
+
+  document.getElementById('loading').style.display = 'none';
 }
 
 
