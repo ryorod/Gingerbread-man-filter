@@ -755,6 +755,7 @@ export async function bindPage() {
 
   segmentBodyInRealTime();
 
+  document.getElementById('load-container').style.display = 'none';
   document.getElementById('loading').style.display = 'none';
 }
 

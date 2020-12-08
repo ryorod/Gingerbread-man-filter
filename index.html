@@ -92,6 +92,13 @@
       }
     }
 
+    #load-container {
+      width: 100vw;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+    }
+
     #loading {
       width: 100%;
       height: 100%;
@@ -195,6 +202,7 @@
   <div id="stats"></div>
   <div id="info" style='display:none'>
   </div>
+  <div id="load-container" style='display:flex'>
   <div id="loading" style='display:flex'>
     <div id="spinner">
       <img src="./img/gingerbread.png" id="gingerbread" alt="gingerbread man">
@@ -207,6 +215,7 @@
         <li><img src="./img/small_cookie.png" alt="dots"></li>
       </ul>
     </div>
+  </div>
   </div>
   <div id='main' style='display:none'>
     <video id="video" playsinline style="display: none"></video>
