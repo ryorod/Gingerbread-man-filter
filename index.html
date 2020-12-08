@@ -182,13 +182,27 @@
         position: relative;
       }
 
-      #download {
+      #button-container {
         position: absolute;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
         bottom: 3%;
-        left: 50%;
-        transform: translateX(-50%);
+        width: 100%;
+      }
+
+      #download {
+        margin-right: 50%;
+        transform: translateX(50%);
         max-width: 100px;
         width: 20%;
+        height: auto;
+      }
+
+      #switch {
+        transform: translateX(50%);
+        max-width: 65px;
+        width: 13%;
         height: auto;
       }
     }
@@ -220,8 +234,10 @@
   <div id='main' style='display:none'>
     <video id="video" playsinline style="display: none"></video>
     <canvas id="output"></canvas>
+    <div id="button-container">
     <img src="./img/camera.png" id="download" alt="camera icon" style="display: none">
     <img src="./img/camera.png" id="switch" alt="switch icon" style="display: none">
+    </div>
   </div>
   <!--
   <ul id="colors" style="display: none"></ul>
