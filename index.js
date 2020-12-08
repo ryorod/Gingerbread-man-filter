@@ -15,7 +15,7 @@
  * =============================================================================
  */
 import * as bodyPix from '@tensorflow-models/body-pix';
-import dat from 'dat.gui';
+//import dat from 'dat.gui';
 import Stats from 'stats.js';
 
 //import {drawEyes, drawKeypoints, drawMouth, drawRibbon, drawSkeleton, toggleLoadingUI, TRY_RESNET_BUTTON_NAME, TRY_RESNET_BUTTON_TEXT, updateTryResNetButtonDatGuiCss} from './demo_util';
@@ -201,7 +201,7 @@ const guiState = {
     blurBodyPartAmount: 3,
     bodyPartEdgeBlurAmount: 3,
   },*/
-  showFps: !isMobile()
+  //showFps: !isMobile()
 };
 
 function toCameraOptions(cameras) {
@@ -217,6 +217,7 @@ function toCameraOptions(cameras) {
 /**
  * Sets up dat.gui controller on the top-right of the window
  */
+/*
 function setupGui(cameras) {
   const gui = new dat.GUI({width: 300});
 
@@ -227,6 +228,7 @@ function setupGui(cameras) {
   gui.add(guiState, TRY_RESNET_BUTTON_NAME).name(TRY_RESNET_BUTTON_TEXT);
   updateTryResNetButtonDatGuiCss();
   */
+  /*
   gui.add(guiState, 'camera', toCameraOptions(cameras))
       .onChange(async function(cameraLabel) {
         state.changingCamera = true;
@@ -484,6 +486,7 @@ function setupGui(cameras) {
     }
   });
   */
+  /*
   gui.add(guiState, 'showFps').onChange(showFps => {
     if (showFps) {
       document.body.appendChild(stats.dom);
@@ -622,14 +625,14 @@ function drawPoses(personOrPersonPartSegmentation, flipHorizontally, ctx) {
 }
 
 async function loadBodyPix() {
-  toggleLoadingUI(true);
+  //toggleLoadingUI(true);
   state.net = await bodyPix.load({
     architecture: 'MobileNetV1',
     outputStride: 16,
     multiplier: 0.75,
     quantBytes: 2
   });
-  toggleLoadingUI(false);
+  //toggleLoadingUI(false);
 }
 
 /**
@@ -643,18 +646,18 @@ function segmentBodyInRealTime() {
   async function bodySegmentationFrame() {
     // if changing the model or the camera, wait a second for it to complete
     // then try again.
-    if (state.changingArchitecture || state.changingMultiplier ||
+    /*if (state.changingArchitecture || state.changingMultiplier ||
         state.changingCamera || state.changingStride ||
         state.changingQuantBytes) {
       console.log('load model...');
-      loadBodyPix();
       const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
       await sleep(2000);
+      loadBodyPix();
       state.changingArchitecture = false;
       state.changingMultiplier = false;
       state.changingStride = false;
       state.changingQuantBytes = false;
-    }
+    }*/
 
     // Begin monitoring code for frames per second
     stats.begin();
@@ -742,8 +745,8 @@ export async function bindPage() {
   
   let cameras = await getVideoInputs();
   
-  setupFPS();
-  setupGui(cameras);
+  //setupFPS();
+  //setupGui(cameras);
 
   document.getElementById('main').style.display = 'inline-block';
 
@@ -751,6 +754,42 @@ export async function bindPage() {
   dl.style.display = 'inline-block';
   dl.onclick = (e) => {
     canvasDownload();
+  }
+
+  if(isMobile()) {
+    const sw = document.getElementById('switch');
+    sw.style.display = 'inline-block';
+    let switchCounter = 0;
+    let cameraLabelMobile = null;
+    sw.addEventListener("click", async function() {
+      state.changingCamera = true;
+      document.getElementById('main').style.display = 'none';
+      document.getElementById('load-container').style.display = 'flex';
+      document.getElementById('loading').style.display = 'flex';
+      switchCounter++;
+      if(switchCounter%2==0){
+        cameraLabelMobile = null;
+      }else{
+        cameraLabelMobile = "back";
+      }
+      
+      await loadBodyPix();
+      //const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+      //await sleep(2000);
+      await loadVideo(cameraLabelMobile);
+      
+
+      if (getFacingMode(cameraLabelMobile) == 'environment') {
+        guiState.flipHorizontal = false;
+      }else{
+        guiState.flipHorizontal = true;
+      }
+      segmentBodyInRealTime();
+      document.getElementById('main').style.display = 'inline-block';
+      document.getElementById('load-container').style.display = 'none';
+      document.getElementById('loading').style.display = 'none';
+      state.changingCamera = false;
+    });
   }
 
   segmentBodyInRealTime();
