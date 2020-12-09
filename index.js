@@ -19,7 +19,7 @@ import * as bodyPix from '@tensorflow-models/body-pix';
 import Stats from 'stats.js';
 
 //import {drawEyes, drawKeypoints, drawMouth, drawRibbon, drawSkeleton, toggleLoadingUI, TRY_RESNET_BUTTON_NAME, TRY_RESNET_BUTTON_TEXT, updateTryResNetButtonDatGuiCss} from './demo_util';
-import {drawFace, toggleLoadingUI} from './demo_util';
+import {drawFace} from './demo_util';
 //import * as partColorScales from './part_color_scales';
 
 
@@ -203,7 +203,7 @@ const guiState = {
   },*/
   //showFps: !isMobile()
 };
-
+/*
 function toCameraOptions(cameras) {
   const result = {default: null};
 
@@ -213,7 +213,7 @@ function toCameraOptions(cameras) {
 
   return result;
 }
-
+*/
 /**
  * Sets up dat.gui controller on the top-right of the window
  */
@@ -519,13 +519,14 @@ function setupGui(cameras) {
 /**
  * Sets up a frames per second panel on the top-left of the window
  */
+/*
 function setupFPS() {
   stats.showPanel(0);  // 0: fps, 1: ms, 2: mb, 3+: custom
   if (guiState.showFps) {
     document.body.appendChild(stats.dom);
   }
 }
-
+*/
 function canvasDownload() {
   let canvas = document.getElementById("output");
   let a = document.createElement("a");
@@ -743,7 +744,7 @@ export async function bindPage() {
   
   await loadVideo(guiState.camera);
   
-  let cameras = await getVideoInputs();
+  //let cameras = await getVideoInputs();
   
   //setupFPS();
   //setupGui(cameras);

@@ -84,10 +84,7 @@ export function drawCurve(ctx, y1, y2, x1, x2, r, color) {
   ctx.strokeStyle = color;
   ctx.lineWidth = 5;
   ctx.beginPath();
-  //ctx.moveTo((x1 + x2) / 2, (y1 + y2) / 2);
-  //ctx.arc((x1 + x2) / 2, (y1 + y2) / 2, r, Math.PI / 6, Math.PI * 5 / 6);
   ctx.arc((x1 + x2) / 2, (y1 + y2) / 2, r, radian + Math.PI / 6, radian + Math.PI * 5 / 6);
-  //ctx.closePath();
   ctx.stroke();
 }
 
@@ -98,7 +95,6 @@ export function drawRightPartOfRibbon(ctx, y1, y2, x1, x2, r, ribY, color) {
   ctx.beginPath();
   ctx.moveTo((x1 + x2) / 2, ribY);
   ctx.arc((x1 + x2) / 2, ribY, r, radian - Math.PI / 6, radian + Math.PI / 6);
-  //ctx.arc((x1 + x2) / 2, ribY, r, radian + Math.PI * 5 / 6, radian + Math.PI * 7 / 6);
   ctx.closePath();
   ctx.fill();
 }
@@ -108,7 +104,6 @@ export function drawLeftPartOfRibbon(ctx, y1, y2, x1, x2, r, ribY, color) {
   ctx.fillStyle = color;
   ctx.beginPath();
   ctx.moveTo((x1 + x2) / 2, ribY);
-  //ctx.arc((x1 + x2) / 2, ribY, r, radian - Math.PI / 6, radian + Math.PI / 6);
   ctx.arc((x1 + x2) / 2, ribY, r, radian + Math.PI * 5 / 6, radian + Math.PI * 7 / 6);
   ctx.closePath();
   ctx.fill();
@@ -162,9 +157,6 @@ export function drawKeypoints(keypoints, minConfidence, ctx, scale = 1) {
 
 //目を描画する
 export function drawEyes(eyepoint1, eyepoint2, ctx, scale = 1) {
-  //const eyepoint1 = keypoints[1];
-  //const eyepoint2 = keypoints[2];
-  
   var {y, x} = eyepoint1.position;
   const y1 = y;
   const x1 = x;
@@ -179,9 +171,6 @@ export function drawEyes(eyepoint1, eyepoint2, ctx, scale = 1) {
 
 //口を描画する
 export function drawMouth(eyepoint1, eyepoint2, ctx, scale = 1) {
-  //const eyepoint1 = keypoints[1];
-  //const eyepoint2 = keypoints[2];
-  
   var {y, x} = eyepoint1.position;
   const y1 = y;
   const x1 = x;
@@ -195,9 +184,6 @@ export function drawMouth(eyepoint1, eyepoint2, ctx, scale = 1) {
 
 //リボンを描画する
 export function drawRibbon(eyepoint1, eyepoint2, ctx, scale = 1) {
-  //const eyepoint1 = keypoints[1];
-  //const eyepoint2 = keypoints[2];
-  
   var {y, x} = eyepoint1.position;
   const y1 = y;
   const x1 = x;
