@@ -130,10 +130,27 @@
       height: auto;
       animation: 3s linear infinite rotation;
     }
+    
+    @-webkit-keyframes rotation {
+      0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
 
     @keyframes rotation {
-      0% { transform: rotate(0); }
-      100% { transform: rotate(360deg); }
+      0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
     }
 
     #loading-and-dots {
@@ -177,10 +194,34 @@
       animation-delay: 0.75s;
     }
 
+    @-webkit-keyframes hop {
+      0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
+      50% {
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+      }
+      100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
+    }
+
     @keyframes hop {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0); }
+      0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
+      50% {
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+      }
+      100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
     }
 
     #button-container {
