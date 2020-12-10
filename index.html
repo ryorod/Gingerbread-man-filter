@@ -224,6 +224,13 @@
       }
     }
 
+    #video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+
     #button-container {
       display: inline;
     }
@@ -297,7 +304,7 @@
   </div>
   </div>
   <div id='main' style='display:none'>
-    <video id="video" playsinline style="display: none"></video>
+    <video id="video" playsinline autoplay muted style="opacity: 0.01;"></video>
     <canvas id="output"></canvas>
     <div id="button-container">
     <img src="./img/camera.png" id="download" alt="camera icon" style="display: none">

@@ -743,6 +743,8 @@ export async function bindPage() {
   await loadBodyPix();
   
   await loadVideo(guiState.camera);
+
+  segmentBodyInRealTime();
   
   //let cameras = await getVideoInputs();
   
@@ -793,7 +795,7 @@ export async function bindPage() {
     });
   }
 
-  segmentBodyInRealTime();
+  //segmentBodyInRealTime();
 
   document.getElementById('load-container').style.display = 'none';
   document.getElementById('loading').style.display = 'none';
