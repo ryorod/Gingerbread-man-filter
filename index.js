@@ -735,10 +735,22 @@ function segmentBodyInRealTime() {
   bodySegmentationFrame();
 }
 
+async function opening() {
+  document.getElementById('load-container').style.display = 'none';
+  document.getElementById('top').style.display = 'inline';
+  const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  await sleep(2000);
+  document.getElementById('load-container').style.display = 'flex';
+  document.getElementById('top').style.display = 'none';
+}
+
 /**
  * Kicks off the demo.
  */
 export async function bindPage() {
+  if(isMobile()) {
+    await opening();
+  }
   // Load the BodyPix model weights with architecture 0.75
   await loadBodyPix();
   
