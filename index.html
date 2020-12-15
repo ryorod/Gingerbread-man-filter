@@ -17,317 +17,352 @@
 
 <!DOCTYPE html>
 <html>
-
-<head>
-  <title>Gingerbread man AR</title>
-  <style>
-    body {
-      margin: 0;
-      width: 100%;
-    }
-    /*
-    .footer {
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      color: black;
-    }
-
-    .footer-text {
-      max-width: 600px;
-      text-align: center;
-      margin: auto;
-    }
-
-    .footer-text,
-    #colors {
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    #colors {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    #colors li {
-      margin: 0;
-    }
-
-    #colors .color {
-      width: 50px;
-      height: 1em;
-    }
-
-    #colors li div {
-      display: inline-block;
-    }
-
-    .footer-menu {
-      display: none;
-    }
-
-    /*
-     *  The following loading spinner CSS is from SpinKit project
-     *  https://github.com/tobiasahlin/SpinKit
-     */
-    /*
-    .sk-spinner-pulse {
-      width: 20px;
-      height: 20px;
-      margin: auto 10px;
-      float: left;
-      background-color: #333;
-      border-radius: 100%;
-      -webkit-animation: sk-pulseScaleOut 1s infinite ease-in-out;
-      animation: sk-pulseScaleOut 1s infinite ease-in-out;
-    }
-
-    @-webkit-keyframes sk-pulseScaleOut {
-      0% {
-        -webkit-transform: scale(0);
-        transform: scale(0);
+  <head>
+    <title>Gingerbread man AR</title>
+    <style>
+      body {
+        margin: 0;
+        width: 100%;
+      }
+      /*
+      .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        color: black;
       }
 
-      100% {
-        -webkit-transform: scale(1.0);
-        transform: scale(1.0);
-        opacity: 0;
-      }
-    }
-
-    @keyframes sk-pulseScaleOut {
-      0% {
-        -webkit-transform: scale(0);
-        transform: scale(0);
+      .footer-text {
+        max-width: 600px;
+        text-align: center;
+        margin: auto;
       }
 
-      100% {
-        -webkit-transform: scale(1.0);
-        transform: scale(1.0);
-        opacity: 0;
+      .footer-text,
+      #colors {
+        font-family: Arial, Helvetica, sans-serif;
       }
-    }
-    */
-    #load-container {
-      display: flex;
-      width: 100vw;
-      height: 100vh;
-      justify-content: center;
-      align-items: center;
-    }
 
-    #loading {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    #gingerbread {
-      width: 150px;
-      height: auto;
-      animation: 3s linear infinite rotation;
-    }
-    
-    @-webkit-keyframes rotation {
-      0% {
-        -webkit-transform: rotate(0);
-        transform: rotate(0);
+      #colors {
+        margin: 0;
+        padding: 0;
+        list-style: none;
       }
-      100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
+
+      #colors li {
+        margin: 0;
       }
-    }
 
-    @keyframes rotation {
-      0% {
-        -webkit-transform: rotate(0);
-        transform: rotate(0);
+      #colors .color {
+        width: 50px;
+        height: 1em;
       }
-      100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
+
+      #colors li div {
+        display: inline-block;
       }
-    }
 
-    #loading-and-dots {
-      display: flex;
-      margin-top: 5px;
-      height: auto;
-      align-items: flex-start;
-    }
-
-    #load-text {
-      width: 150px;
-      height: auto;
-    }
-    
-    ul {
-      list-style: none;
-      padding-bottom: 5px;
-      padding-left: 7px;
-    }
-
-    li {
-      display: inline-block;
-      margin-left: 5px;
-    }
-
-    li img {
-      width: 5px;
-      height: auto;
-      animation: 1.5s ease-out infinite hop;
-    }
-
-    li:first-child img {
-      animation-delay: 0;
-    }
-
-    li:nth-child(2) img {
-      animation-delay: 0.375s;
-    }
-
-    li:last-child img {
-      animation-delay: 0.75s;
-    }
-
-    @-webkit-keyframes hop {
-      0% {
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
+      .footer-menu {
+        display: none;
       }
-      50% {
-        -webkit-transform: translateY(-10px);
-        transform: translateY(-10px);
-      }
-      100% {
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-      }
-    }
 
-    @keyframes hop {
-      0% {
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
+      /*
+       *  The following loading spinner CSS is from SpinKit project
+       *  https://github.com/tobiasahlin/SpinKit
+       */
+      /*
+      .sk-spinner-pulse {
+        width: 20px;
+        height: 20px;
+        margin: auto 10px;
+        float: left;
+        background-color: #333;
+        border-radius: 100%;
+        -webkit-animation: sk-pulseScaleOut 1s infinite ease-in-out;
+        animation: sk-pulseScaleOut 1s infinite ease-in-out;
       }
-      50% {
-        -webkit-transform: translateY(-10px);
-        transform: translateY(-10px);
-      }
-      100% {
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-      }
-    }
 
-    #video {
+      @-webkit-keyframes sk-pulseScaleOut {
+        0% {
+          -webkit-transform: scale(0);
+          transform: scale(0);
+        }
+
+        100% {
+          -webkit-transform: scale(1.0);
+          transform: scale(1.0);
+          opacity: 0;
+        }
+      }
+
+      @keyframes sk-pulseScaleOut {
+        0% {
+          -webkit-transform: scale(0);
+          transform: scale(0);
+        }
+
+        100% {
+          -webkit-transform: scale(1.0);
+          transform: scale(1.0);
+          opacity: 0;
+        }
+      }
+      */
+      #load-container {
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #loading {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #gingerbread {
+        width: 150px;
+        height: auto;
+        animation: 3s linear infinite rotation;
+      }
+
+      @-webkit-keyframes rotation {
+        0% {
+          -webkit-transform: rotate(0);
+          transform: rotate(0);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes rotation {
+        0% {
+          -webkit-transform: rotate(0);
+          transform: rotate(0);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+
+      #loading-and-dots {
+        display: flex;
+        margin-top: 5px;
+        height: auto;
+        align-items: flex-start;
+      }
+
+      #load-text {
+        width: 150px;
+        height: auto;
+      }
+
+      ul {
+        list-style: none;
+        padding-bottom: 5px;
+        padding-left: 7px;
+      }
+
+      li {
+        display: inline-block;
+        margin-left: 5px;
+      }
+
+      li img {
+        width: 5px;
+        height: auto;
+        animation: 1.5s ease-out infinite hop;
+      }
+
+      li:first-child img {
+        animation-delay: 0;
+      }
+
+      li:nth-child(2) img {
+        animation-delay: 0.375s;
+      }
+
+      li:last-child img {
+        animation-delay: 0.75s;
+      }
+
+      @-webkit-keyframes hop {
+        0% {
+          -webkit-transform: translateY(0);
+          transform: translateY(0);
+        }
+        50% {
+          -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+        }
+        100% {
+          -webkit-transform: translateY(0);
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes hop {
+        0% {
+          -webkit-transform: translateY(0);
+          transform: translateY(0);
+        }
+        50% {
+          -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+        }
+        100% {
+          -webkit-transform: translateY(0);
+          transform: translateY(0);
+        }
+      }
+
+      #video {
         position: absolute;
         top: 0;
         left: 0;
         z-index: -1;
-    }
-
-    #button-container {
-      display: inline;
-    }
-
-    /* mobile */
-    @media only screen and (max-width: 640px) {
-      /*
-      .footer {
-        height: 46px;
-      }
-
-      .footer-text {
-        display: none;
-      }
-      */
-
-      #top {
-        width: 100%;
-        height: auto;
-      }
-
-      #load-container {
-        display: none;
-      }
-
-      #loading {
-        display: none;
-      }
-
-      #main {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        position: relative;
       }
 
       #button-container {
-        position: absolute;
-        display: flex;
-        flex-direction: row-reverse;
-        align-items: center;
-        bottom: 3%;
-        width: 100%;
+        display: inline;
       }
 
-      #download {
-        margin-right: 50%;
-        transform: translateX(50%);
-        max-width: 100px;
-        width: 20%;
-        height: auto;
-      }
+      /* mobile */
+      @media only screen and (max-width: 640px) {
+        /*
+        .footer {
+          height: 46px;
+        }
 
-      #switch {
-        transform: translateX(50%);
-        max-width: 65px;
-        width: 13%;
-        height: auto;
-      }
-    }
-  </style>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta charset="UTF-8">
-</head>
+        .footer-text {
+          display: none;
+        }
+        */
 
-<body>
-  <div id="stats"></div>
-  <div id="info" style='display:none'>
-  </div>
-  <img src="./img/ginger_top.jpg" id="top" alt="opening screen" style="display: none">
-  <div id="load-container">
-  <div id="loading">
-    <div id="spinner">
-      <img src="./img/gingerbread.png" id="gingerbread" alt="gingerbread man">
+        #top-container {
+          width: 100vw;
+          height: 100vh;
+          justify-content: center;
+          align-items: center;
+        }
+
+        #top {
+          width: 100%;
+          height: auto;
+        }
+
+        #load-container {
+          display: none;
+        }
+
+        #loading {
+          display: none;
+        }
+
+        #main {
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          position: relative;
+        }
+
+        #button-container {
+          position: absolute;
+          display: flex;
+          flex-direction: row-reverse;
+          align-items: center;
+          bottom: 3%;
+          width: 100%;
+        }
+
+        #download {
+          margin-right: 50%;
+          transform: translateX(50%);
+          max-width: 100px;
+          width: 20%;
+          height: auto;
+        }
+
+        #switch {
+          transform: translateX(50%);
+          max-width: 65px;
+          width: 13%;
+          height: auto;
+        }
+      }
+    </style>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <div id="stats"></div>
+    <div id="info" style="display: none"></div>
+    <div id="top-container" style="display: none">
+      <img
+        src="./img/ginger_top.jpg"
+        id="top"
+        alt="opening screen"
+        style="display: none"
+      />
     </div>
-    <div id="loading-and-dots">
-      <img src="./img/Loading.png" id="load-text" alt="loading text">
-      <ul>
-        <li><img src="./img/small_cookie.png" alt="dots"></li>
-        <li><img src="./img/small_cookie.png" alt="dots"></li>
-        <li><img src="./img/small_cookie.png" alt="dots"></li>
-      </ul>
+    <div id="load-container">
+      <div id="loading">
+        <div id="spinner">
+          <img
+            src="./img/gingerbread.png"
+            id="gingerbread"
+            alt="gingerbread man"
+          />
+        </div>
+        <div id="loading-and-dots">
+          <img src="./img/Loading.png" id="load-text" alt="loading text" />
+          <ul>
+            <li><img src="./img/small_cookie.png" alt="dots" /></li>
+            <li><img src="./img/small_cookie.png" alt="dots" /></li>
+            <li><img src="./img/small_cookie.png" alt="dots" /></li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
-  </div>
-  <div id='main' style='display:none'>
-    <video id="video" playsinline autoplay muted style="opacity: 0.01;"></video>
-    <canvas id="output"></canvas>
-    <div id="button-container">
-    <img src="./img/camera.png" id="download" alt="camera icon" style="display: none">
-    <img src="./img/switch.png" id="switch" alt="switch icon" style="display: none">
+    <div id="main" style="display: none">
+      <video
+        id="video"
+        playsinline
+        autoplay
+        muted
+        style="opacity: 0.01"
+      ></video>
+      <canvas id="output"></canvas>
+      <div id="button-container">
+        <img
+          src="./img/camera.png"
+          id="download"
+          alt="camera icon"
+          style="display: none"
+        />
+        <img
+          src="./img/switch.png"
+          id="switch"
+          alt="switch icon"
+          style="display: none"
+        />
+      </div>
     </div>
-  </div>
-  <!--
+    <!--
   <ul id="colors" style="display: none"></ul>
   <div class="footer">
     <div class="footer-text">
@@ -354,7 +389,6 @@
     </div>
   </div>
 -->
-  <script src="index.js"></script>
-</body>
-
+    <script src="index.js"></script>
+  </body>
 </html>

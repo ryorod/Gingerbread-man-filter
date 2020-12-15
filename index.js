@@ -737,11 +737,13 @@ function segmentBodyInRealTime() {
 
 async function opening() {
   //document.getElementById('load-container').style.display = 'none';
-  document.getElementById('top').style.display = 'inline';
+  document.getElementById('top-container').style.display = 'flex';
+  document.getElementById('top').style.display = 'flex';
   const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
   await sleep(2000);
   document.getElementById('load-container').style.display = 'flex';
   document.getElementById('loading').style.display = 'flex';
+  document.getElementById('top-container').style.display = 'none';
   document.getElementById('top').style.display = 'none';
 }
 
