@@ -236,6 +236,15 @@
         display: inline;
       }
 
+      @media only screen and (max-width: 1024px) {
+        #top-container {
+          width: 100vw;
+          height: 100vh;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
       /* mobile */
       @media only screen and (max-width: 640px) {
         /*
@@ -247,13 +256,6 @@
           display: none;
         }
         */
-
-        #top-container {
-          width: 100vw;
-          height: 100vh;
-          justify-content: center;
-          align-items: center;
-        }
 
         #top {
           width: 100%;
