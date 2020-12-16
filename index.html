@@ -130,6 +130,7 @@
         width: 150px;
         height: auto;
         animation: 3s linear infinite rotation;
+        -webkit-animation: 3s linear infinite rotation;
       }
 
       @-webkit-keyframes rotation {
@@ -181,6 +182,7 @@
         width: 5px;
         height: auto;
         animation: 1.5s ease-out infinite hop;
+        -webkit-animation: 1.5s ease-out infinite hop;
       }
 
       li:first-child img {
@@ -242,6 +244,33 @@
           height: 100vh;
           justify-content: center;
           align-items: center;
+        }
+
+        #top {
+          animation: fadeIn 1s ease;
+          -webkit-animation: fadeIn 1s ease;
+          animation: fadeOut 1s ease 3s;
+          -webkit-animation: fadeOut 1s ease 3s;
+        }
+
+        @keyframes fadeIn {
+          0% {opacity: 0;}
+          100% {opacity: 1;}
+        }
+
+        @-webkit-keyframes fadeIn {
+          0% {opacity: 0;}
+          100% {opacity: 1;}
+        }
+
+        @keyframes fadeOut {
+          0% {opacity: 1;}
+          100% {opacity: 0;}
+        }
+
+        @-webkit-keyframes fadeOut {
+          0% {opacity: 1;}
+          100% {opacity: 0;}
         }
       }
 
